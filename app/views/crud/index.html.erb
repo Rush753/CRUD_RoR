@@ -1,0 +1,46 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Age</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.id %></td>
+      <td><%= article.fname %></td>
+      <td><%= article.lname %></td>
+      <td><%= article.age %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  <p>
+    <%= form.label :id %><br>
+    <%= form.text_field :id %>
+  </p>
+
+  <p>
+    <%= form.label :fname %><br>
+    <%= form.text_field :fname %>
+  </p>
+
+  <p>
+    <%= form.label :lname %><br>
+    <%= form.text_field :lname %>
+  </p>
+
+  <p>
+    <%= form.label :age %><br>
+    <%= form.text_field :age %>
+  </p>
+
+  <p>
+    <%= form.submit :create %>
+  </p>
+<% end %>
+
+<%= link_to 'My Blog', controller: 'articles' %>

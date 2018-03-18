@@ -1,0 +1,29 @@
+
+<h1>Persons</h1>
+
+<table border="1" cellpadding="7">
+  <tr>
+    <th>Id</th>
+    <th>Fname</th>
+    <th>Lname</th>
+    <th>Age</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.id %></td>
+      <td><%= article.fname %></td>
+      <td><%= article.lname %></td>
+      <td><%= article.age %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article_path(article),
+                      method: :delete %></td>
+
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Create', new_article_path %>
+
+
+<!--rails s -p 3000 -P tmp/pids/server2.pid
